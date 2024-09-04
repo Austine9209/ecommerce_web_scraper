@@ -5,6 +5,7 @@ Created on Sun Sep  1 01:43:22 2024
 @author: abaraka
 """
 
+# Import libraries
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from bs4 import BeautifulSoup
@@ -56,7 +57,7 @@ for category, url_pattern in categories.items():
                         "price": price,
                         "original_price": original_price,
                         "discount": discount,
-                        "category": category,  # Add category to the data
+                        "category": category,
                     })
             except AttributeError:
                 continue
@@ -66,7 +67,7 @@ driver.quit()
 # Convert the list to a DataFrame
 df = pd.DataFrame(product_list)
 
-# Save the data to a CSV file
+# Save the data to a CSV file (Optional)
 df.to_csv("jumia_products.csv", index=False)
 
 # Connect to the PostgreSQL database

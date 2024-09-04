@@ -61,14 +61,14 @@ if options == "Summary":
     with col1:
         st.write("#### Distribution of Products by Category (Pie Chart)")
         category_counts = df['category'].value_counts()
-        fig_pie, ax_pie = plt.subplots(figsize=(8, 8))  # Ensure consistent size
+        fig_pie, ax_pie = plt.subplots(figsize=(8, 8))
         ax_pie.pie(category_counts, labels=category_counts.index, autopct='%1.1f%%', colors=sns.color_palette('viridis', len(category_counts)))
         ax_pie.set_title('Product Category Distribution')
         st.pyplot(fig_pie)
 
     with col2:
         st.write("#### Distribution of Products by Category (Bar Chart)")
-        fig_bar, ax_bar = plt.subplots(figsize=(8, 8))  # Ensure consistent size
+        fig_bar, ax_bar = plt.subplots(figsize=(8, 8))
         sns.barplot(x=category_counts.index, y=category_counts.values, ax=ax_bar, palette='viridis')
         ax_bar.set_title('Product Category Distribution')
         ax_bar.set_xlabel('Category')
